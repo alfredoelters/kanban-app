@@ -1,0 +1,23 @@
+{
+  "name": "kanban_app",
+  "version": "0.0.1",
+  "description": "Webapp , Flux and React tutorial from survivejs.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alfredoelters/kanban-app.git"
+  },
+  "keywords": [
+    "Webpack",
+    "React",
+    "Flux"
+  ],
+  "author": "Alfredo El Ters",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/alfredoelters/kanban-app/issues"
+  }
+}
