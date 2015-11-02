@@ -35,6 +35,7 @@
     "react-transform-hmr": "~1.0.1"
   },
   "dependencies": {
+    "alt": "^0.17.8",
     "array.prototype.findindex": "^1.0.0",
     "node-uuid": "^1.4.3",
     "react": "~0.14.0"
