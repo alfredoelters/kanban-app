@@ -13,7 +13,7 @@ const noteTarget = {
     const sourceProps = monitor.getItem();
     const sourceId = sourceProps.id;
 
-    if(!targetProps.lane.notes.length) {
+    if (!targetProps.lane.notes.length) {
       LaneActions.attachToLane({
         laneId: targetProps.lane.id,
         noteId: sourceId
@@ -73,7 +73,7 @@ export default class Lane extends React.Component {
   }
 
   editName(id, name) {
-    if(name) {
+    if (name) {
       LaneActions.update({id, name});
     }else {
       LaneActions.delete(id);

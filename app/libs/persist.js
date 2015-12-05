@@ -6,12 +6,12 @@ export default function(alt, storage, storeName) {
   try {
     alt.bootstrap(storage.get(storeName));
   }
-  catch(e) {
+  catch (e) {
     console.error('Failed to bootstrap data', e);
   }
 
   finalStore.listen(() => {
-    if(!storage.get('debug')) {
+    if (!storage.get('debug')) {
       storage.set(storeName, alt.takeSnapshot());
     }
   });

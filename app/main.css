@@ -11,7 +11,7 @@ body {
 
   background-color: #efefef;
   border: 1px solid #ccc;
-  border-radius: 0.5em;
+  border-radius: .5em;
 
   min-width: 10em;
   vertical-align: top;
@@ -25,8 +25,8 @@ body {
   color: #efefef;
   background-color: #333;
 
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
+  border-top-left-radius: .5em;
+  border-top-right-radius: .5em;
 }
 
 .lane-name {
@@ -36,16 +36,16 @@ body {
 .lane-add-note {
   float: right;
 
-  margin-left: 0.5em;
+  margin-left: .5em;
 }
 
-.add-lane, .lane-add-note button {
+.add-lane,  .lane-add-note button {
   background-color: #fdfdfd;
   border: 1px solid #ccc;
 }
 
 .notes {
-  margin: 0.5em;
+  margin: .5em;
   padding-left: 0;
 
   max-width: 10em;
@@ -53,14 +53,14 @@ body {
 }
 
 .note {
-  margin-bottom: 0.5em;
-  padding: 0.5em;
+  margin-bottom: .5em;
+  padding: .5em;
 
   background-color: #fdfdfd;
-  box-shadow: 0 0 0.3em .03em rgba(0,0,0,.3);
+  box-shadow: 0 0 .3em .03em rgba(0, 0, 0, .3);
 }
 .note:hover {
-  box-shadow: 0 0 0.3em .03em rgba(0,0,0,.7);
+  box-shadow: 0 0 .3em .03em rgba(0, 0, 0, .7);
 
   transition: .6s;
 }

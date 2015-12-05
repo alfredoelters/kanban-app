@@ -27,7 +27,7 @@ export default class Editable extends React.Component {
       onKeyPress={this.checkEnter} />;
   }
 
-  renderValue = () => { 
+  renderValue = () => {
     const onDelete = this.props.onDelete;
 
     return (
@@ -49,7 +49,7 @@ export default class Editable extends React.Component {
   }
 
   checkEnter = (e) => {
-    if(e.key === 'Enter') {
+    if (e.key === 'Enter') {
       this.finishEdit(e);
     }
   }

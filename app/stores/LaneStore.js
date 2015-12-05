@@ -26,7 +26,7 @@ class LaneStore {
     const lanes = this.lanes;
     const targetId = this.findLane(id);
 
-    if(targetId < 0) {
+    if (targetId < 0) {
       return;
     }
 
@@ -39,7 +39,7 @@ class LaneStore {
     const lanes = this.lanes;
     const targetId = this.findLane(id);
 
-    if(targetId < 0) {
+    if (targetId < 0) {
       return;
     }
 
@@ -49,7 +49,7 @@ class LaneStore {
   }
 
   attachToLane({laneId, noteId}) {
-    if(!noteId) {
+    if (!noteId) {
       this.waitFor(NoteStore);
       // Get last noteId added
       noteId = NoteStore.getState().notes.slice(-1)[0].id;
@@ -58,7 +58,7 @@ class LaneStore {
     const lanes = this.lanes;
     const targetId = this.findLane(laneId);
 
-    if(targetId < 0) {
+    if (targetId < 0) {
       return;
     }
 
@@ -66,12 +66,11 @@ class LaneStore {
 
     const lane = lanes[targetId];
 
-    if(lane.notes.indexOf(noteId) === -1) {
+    if (lane.notes.indexOf(noteId) === -1) {
       lane.notes.push(noteId);
 
       this.setState({lanes});
-    }
-    else {
+    } else {
       console.warn('Already attached note to lane', lanes);
     }
   }
@@ -82,7 +81,7 @@ class LaneStore {
       return lane.notes.indexOf(noteId) >= 0;
     })[0];
 
-    if(!removeLane) {
+    if (!removeLane) {
       return;
     }
 
@@ -96,7 +95,7 @@ class LaneStore {
     const lanes = this.lanes;
     const targetId = this.findLane(laneId);
 
-    if(targetId < 0) {
+    if (targetId < 0) {
       return;
     }
 
@@ -104,14 +103,13 @@ class LaneStore {
     const notes = lane.notes;
     const removeIndex = notes.indexOf(noteId);
 
-    if(removeIndex !== -1) {
+    if (removeIndex !== -1) {
       // Remove note from notes
       lane.notes = notes.slice(0, removeIndex).
         concat(notes.slice(removeIndex + 1));
 
       this.setState({lanes});
-    }
-    else {
+    } else {
       console.warn('Failed to remove note from a lane as it didn\'t exist', lanes);
     }
   }
@@ -120,14 +118,14 @@ class LaneStore {
     const lanes = this.lanes;
     const laneIndex = lanes.findIndex((lane) => lane.id === id);
 
-    if(laneIndex < 0) {
+    if (laneIndex < 0) {
       console.warn('Failed to find lane', lanes, id);
     }
 
     return laneIndex;
   }
 
-  move({sourceId, targetId}){
+  move({sourceId, targetId}) {
     const lanes = this.lanes;
     const sourceLane = lanes.filter((lane) => {
       return lane.notes.indexOf(sourceId) >= 0;
@@ -138,7 +136,7 @@ class LaneStore {
     const sourceNoteIndex = sourceLane.notes.indexOf(sourceId);
     const targetNoteIndex = targetLane.notes.indexOf(targetId);
 
-    if(sourceLane === targetLane) {
+    if (sourceLane === targetLane) {
       // move at once to avoid complications
       sourceLane.notes = update(sourceLane.notes, {
         $splice: [
@@ -146,8 +144,7 @@ class LaneStore {
           [targetNoteIndex, 0, sourceId]
         ]
       });
-    }
-    else {
+    } else {
       // get rid of the source
       sourceLane.notes.splice(sourceNoteIndex, 1);
 

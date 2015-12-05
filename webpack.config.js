@@ -4,6 +4,7 @@ var webpack = require('webpack');
 var merge = require('webpack-merge');
 var Clean = require('clean-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var stylelint = require('stylelint');
 
 var pkg = require('./package.json');
 
@@ -21,6 +22,23 @@ var common = {
     extensions: ['', '.js', '.jsx']
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.css$/,
+        loaders: ['postcss'],
+        include: PATHS.app
+      },
+      {
+        test: /\.jsx?$/,
+        loaders: ['eslint'],
+        include: PATHS.app
+      },
+      {
+        test: /\.jsx?$/,
+        loaders: ['eslint', 'jscs'],
+        include: PATHS.app
+      }
+    ],
     loaders: [
       {
         test: /\.jsx?$/,
@@ -28,6 +46,32 @@ var common = {
         include: PATHS.app
       }
     ]
+  },
+  postcss: function () {
+    return [stylelint({
+      rules: {
+        'block-no-empty': 2,
+        'color-no-invalid-hex': 2,
+        'declaration-colon-space-after': [2, 'always'],
+        'declaration-colon-space-before': [2, 'never'],
+        'function-comma-space-after': [2, 'always'],
+        'function-url-quotes': [2, 'double'],
+        'media-feature-colon-space-after': [2, 'always'],
+        'media-feature-colon-space-before': [2, 'never'],
+        'media-feature-name-no-vendor-prefix': 2,
+        'no-multiple-empty-lines': 2,
+        'number-leading-zero': [2, 'never'],
+        'number-no-trailing-zeros': 2,
+        'property-no-vendor-prefix': 2,
+        'rule-no-duplicate-properties': 2,
+        'rule-no-single-line': 2,
+        'rule-trailing-semicolon': [2, 'always'],
+        'selector-list-comma-newline-after': [2, 'always-multi-line'],
+        'selector-no-id': 2,
+        'string-quotes': [2, 'double'],
+        'value-no-vendor-prefix': 2
+      }
+    })];
   },
   plugins: [
     new HtmlwebpackPlugin({

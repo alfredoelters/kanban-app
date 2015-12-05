@@ -19,7 +19,7 @@ const noteTarget = {
     const sourceProps = monitor.getItem();
     const sourceId = sourceProps.id;
 
-    if(sourceId !== targetId) {
+    if (sourceId !== targetId) {
       targetProps.onMove({sourceId, targetId});
     }
   }
@@ -36,8 +36,7 @@ export default class Note extends React.Component {
   render() {
     const {connectDragSource, connectDropTarget, isDragging,
       onMove, id, ...props} = this.props;
-
-      return connectDragSource(connectDropTarget(
+    return connectDragSource(connectDropTarget(
         <li style={{
           opacity: isDragging ? 0 : 1
         }} {...props}>{props.children}</li>

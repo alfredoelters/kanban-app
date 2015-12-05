@@ -3,7 +3,7 @@ export default {
     try {
       return JSON.parse(localStorage.getItem(k));
     }
-    catch(e) {
+    catch (e) {
       return null;
     }
   },
